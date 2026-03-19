@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Estoque | LogiSync</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h2>LogiSync</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Painel de Controle</a></li>
+                    <li><a href="consulta.html" class="ativo">Consultar Estoque</a></li>
+                    <li><a href="retirada.html">Movimentação (Entrada/Saída)</a></li>
+                    <li><a href="cadastro.html">Cadastro de Produtos</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header>
+                <h1>Consultar Estoque e Localização</h1>
+                <div class="perfil-usuario">Logado: Administrador</div>
+            </header>
+
+            <section class="cartao" style="margin-bottom: 30px;">
+                <div class="barra-pesquisa">
+                    <input type="text" placeholder="Digite o nome do produto, código ou código de barras..." class="input-pesquisa">
+                    <button class="btn btn-importar btn-pesquisar">PESQUISAR</button>
+                </div>
+            </section>
+
+            <section class="resultado-pesquisa">
+                <h3 style="color: #64748b; margin-bottom: 15px;">Resultados encontrados:</h3>
+                
+                <div class="cartao" style="border-left: 5px solid #22c55e;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h2 style="color: #0f172a; margin-bottom: 5px;">Dipirona Sódica 500mg / Parafuso Sextavado 8mm</h2>
+                            <p style="color: #64748b; font-size: 14px;">Código: <strong style="color: #333;">PROD-8842</strong></p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 14px; color: #64748b;">Estoque Atual</p>
+                            <p style="font-size: 32px; font-weight: bold; color: #22c55e;">142 <span style="font-size: 16px;">un</span></p>
+                        </div>
+                    </div>
+                    
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                    
+                    <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px;">
+                        <p style="font-size: 14px; color: #64748b; margin-bottom: 5px;">Local de Armazenamento Exato:</p>
+                        <h3 style="color: #3b82f6; font-size: 20px;">Corredor 03 ➔ Prateleira B ➔ Gaveta 12</h3>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
