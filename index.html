@@ -55,25 +55,16 @@
     <script>
         function atualizarRelogio() {
             const agora = new Date();
-            
-            // Pega os dados da data e hora
             const dia = String(agora.getDate()).padStart(2, '0');
-            const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Mês começa do 0, por isso +1
+            const mes = String(agora.getMonth() + 1).padStart(2, '0');
             const ano = agora.getFullYear();
             const horas = String(agora.getHours()).padStart(2, '0');
             const minutos = String(agora.getMinutes()).padStart(2, '0');
             const segundos = String(agora.getSeconds()).padStart(2, '0');
-
-            // Monta o texto bonito
             const dataHoraFormatada = `Hoje é ${dia}/${mes}/${ano} - ${horas}:${minutos}:${segundos}`;
-            
-            // Joga na tela
             document.getElementById('relogio-atual').textContent = dataHoraFormatada;
         }
-
-        // Atualiza a cada 1 segundo (1000 milissegundos)
         setInterval(atualizarRelogio, 1000);
-        // Roda a primeira vez na hora que a página abre
         atualizarRelogio();
     </script>
 </body>
