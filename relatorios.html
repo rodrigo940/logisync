@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios | LogiSync</title>
     <link rel="stylesheet" href="./estilo/style.css">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 8px; overflow: hidden; }
+        th { background: #f1f5f9; color: #475569; padding: 12px; text-align: left; font-size: 13px; }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #1e293b; }
+        tr:nth-child(even) { background: #f8fafc; }
+        .status-atraso { color: #ef4444; font-weight: bold; background: #fee2e2; padding: 4px 8px; border-radius: 4px; }
+    </style>
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2"/>
                     <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
                 </svg>
-                <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">LogiSync</h2>
+                <h2>LogiSync</h2>
             </div>
             <nav>
                 <ul>
@@ -28,80 +35,33 @@
         </aside>
 
         <main class="conteudo-principal">
-            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
-                <div>
-                    <h1>Relatórios e Auditoria</h1>
-                    <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
-                </div>
-                <button class="btn btn-importar" style="padding: 12px 25px;">Baixar Relatório Completo (Excel/PDF)</button>
+            <header style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>Relatórios e Auditoria</h1>
+                <button class="btn btn-importar">EXPORTAR PDF/EXCEL</button>
             </header>
 
-            <section class="cartao" style="margin-bottom: 30px;">
-                <h2 style="color: #ef4444; font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #fee2e2; padding-bottom: 8px;">1. Itens Não Devolvidos / Alertas</h2>
-                <div class="tabela-container" style="overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="text-align: left; border-bottom: 2px solid #e2e8f0; color: #475569;">
-                                <th style="padding: 12px;">Responsável</th>
-                                <th style="padding: 12px;">Produto/Ferramenta</th>
-                                <th style="padding: 12px;">Data de Saída</th>
-                                <th style="padding: 12px;">OS vinculada</th>
-                                <th style="padding: 12px;">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #f1f5f9;">
-                                <td style="padding: 12px;">Carlos Silva (98765)</td>
-                                <td style="padding: 12px; font-weight: bold;">Martelete Rompedor</td>
-                                <td style="padding: 12px;">15/03/2026 - 08:30</td>
-                                <td style="padding: 12px;">OS-001</td>
-                                <td style="padding: 12px; color: #ef4444; font-weight: bold;">Atrasado (3 dias)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
             <section class="cartao">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <h2 style="color: #3b82f6; font-size: 18px;">2. Histórico de Movimentações</h2>
-                    <select style="padding: 8px; border-radius: 5px; border: 1px solid #cbd5e1;">
-                        <option>Últimos 7 dias</option>
-                        <option>Últimos 30 dias</option>
-                    </select>
-                </div>
-                <div class="tabela-container">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="text-align: left; border-bottom: 2px solid #e2e8f0; color: #475569;">
-                                <th style="padding: 12px;">Data e Hora</th>
-                                <th style="padding: 12px;">Tipo</th>
-                                <th style="padding: 12px;">Produto</th>
-                                <th style="padding: 12px;">Qtd</th>
-                                <th style="padding: 12px;">Responsável</th>
-                                <th style="padding: 12px;">Documento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #f1f5f9;">
-                                <td style="padding: 12px;">18/03/2026 - 14:15</td>
-                                <td style="padding: 12px; color: #10b981; font-weight: bold;">ENTRADA</td>
-                                <td style="padding: 12px;">Filtro de Óleo Diesel</td>
-                                <td style="padding: 12px;">+50</td>
-                                <td style="padding: 12px;">Fornecedor X</td>
-                                <td style="padding: 12px;">NF: 558902</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #f1f5f9;">
-                                <td style="padding: 12px;">18/03/2026 - 10:30</td>
-                                <td style="padding: 12px; color: #f59e0b; font-weight: bold;">SAÍDA</td>
-                                <td style="padding: 12px;">Luva de Vaqueta</td>
-                                <td style="padding: 12px;">-2</td>
-                                <td style="padding: 12px;">João Souza (54321)</td>
-                                <td style="padding: 12px;">OS-042</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <h2 style="color: #ef4444;">1. Pendências de Devolução</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Responsável</th>
+                            <th>Item</th>
+                            <th>Data Saída</th>
+                            <th>OS</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos Silva (98765)</td>
+                            <td>Martelete Rompedor</td>
+                            <td>15/03/2026</td>
+                            <td>OS-001</td>
+                            <td><span class="status-atraso">Atrasado (3 dias)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </main>
     </div>

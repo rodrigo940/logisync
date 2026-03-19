@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produtos | LogiSync</title>
+    <title>Cadastro | LogiSync</title>
     <link rel="stylesheet" href="./estilo/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                     <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
                 </svg>
-                <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">LogiSync</h2>
+                <h2 style="margin-bottom: 0; border-bottom: none;">LogiSync</h2>
             </div>
             <nav>
                 <ul>
@@ -29,63 +29,61 @@
 
         <main class="conteudo-principal">
             <header>
-                <div>
-                    <h1>Cadastro de Novos Produtos</h1>
-                    <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
-                </div>
+                <h1>Gestão de Ativos e Produtos</h1>
+                <p style="color: #64748b; font-weight: bold;">Logado: Administrador</p>
             </header>
 
-            <section class="cartao" style="max-width: 900px;">
-                <h2 style="margin-bottom: 25px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">Informações do Novo Item</h2>
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px;">
                 
-                <form id="form-cadastro">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <section class="cartao">
+                    <h2 style="margin-bottom: 20px; color: #1e293b; font-size: 18px;">Cadastro Manual</h2>
+                    <form id="form-cadastro" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                         <div class="grupo-input" style="grid-column: span 2;">
-                            <label>Descrição / Nome do Produto</label>
+                            <label>Descrição do Produto</label>
                             <input type="text" placeholder="Ex: Luva de Vaqueta Cano Curto" required>
                         </div>
-
                         <div class="grupo-input">
-                            <label>Código Interno / SKU</label>
-                            <input type="text" placeholder="Ex: PROD-102" required>
+                            <label>Código SKU / Interno</label>
+                            <input type="text" placeholder="Ex: PROD-102">
                         </div>
-
                         <div class="grupo-input">
-                            <label>Categoria de Material</label>
-                            <select style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #cbd5e1; background: white;">
-                                <option>EPIs (Equip. Prot. Individual)</option>
-                                <option>Ferramentas Elétricas</option>
-                                <option>Consumíveis / Insumos</option>
-                                <option>Ferragens e Fixadores</option>
-                                <option>Outros</option>
+                            <label>Categoria</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px;">
+                                <option>EPIs</option>
+                                <option>Ferramentas</option>
+                                <option>Insumos</option>
                             </select>
                         </div>
-
                         <div class="grupo-input">
-                            <label>Estoque Mínimo (Gera Alerta)</label>
-                            <input type="number" value="10" min="0">
+                            <label>Estoque Mínimo</label>
+                            <input type="number" value="10">
                         </div>
-
                         <div class="grupo-input">
-                            <label>Unidade de Medida</label>
-                            <select style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #cbd5e1; background: white;">
-                                <option>Unidade (un)</option>
-                                <option>Par (pr)</option>
-                                <option>Caixa (cx)</option>
-                                <option>Metro (m)</option>
-                                <option>Quilo (kg)</option>
-                            </select>
+                            <label>Localização (Rua/Gaveta)</label>
+                            <input type="text" placeholder="Ex: C1-P2-G5">
                         </div>
+                        <button type="submit" class="btn btn-importar" style="grid-column: span 2; margin-top: 10px;">SALVAR PRODUTO</button>
+                    </form>
+                </section>
 
-                        <div class="grupo-input" style="grid-column: span 2;">
-                            <label>Localização Exata (Corredor - Prateleira - Gaveta)</label>
-                            <input type="text" placeholder="Ex: C1 - P2 - G5">
-                        </div>
-                    </div>
+                <section class="cartao" style="border: 2px dashed #cbd5e1; background: #f8fafc; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="margin-bottom: 15px;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <h2 style="color: #065f46; font-size: 18px;">Importação em Massa</h2>
+                    <p style="font-size: 13px; color: #64748b; margin: 10px 0 20px;">Arraste sua planilha .xlsx ou selecione o arquivo abaixo.</p>
                     
-                    <button type="submit" class="btn btn-importar" style="margin-top: 30px; width: 100%; height: 55px; font-size: 18px; font-weight: bold; background-color: #3b82f6;">SALVAR PRODUTO NO BANCO DE DADOS</button>
-                </form>
-            </section>
+                    <input type="file" id="input-excel" style="display: none;" accept=".xlsx, .xls">
+                    <label for="input-excel" class="btn" style="background: #10b981; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">SELECIONAR EXCEL</label>
+                    
+                    <a href="#" style="margin-top: 20px; font-size: 12px; color: #3b82f6; text-decoration: underline;">Baixar modelo de planilha (.xlsx)</a>
+                </section>
+
+            </div>
         </main>
     </div>
 </body>

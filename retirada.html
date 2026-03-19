@@ -9,18 +9,18 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2"/>
                     <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
                 </svg>
-                <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">LogiSync</h2>
+                <h2>LogiSync</h2>
             </div>
             <nav>
                 <ul>
                     <li><a href="painel.html">Painel de Controle</a></li>
                     <li><a href="consulta.html">Consultar Estoque</a></li>
-                    <li><a href="retirada.html" class="ativo">Movimentação (Entrada/Saída)</a></li>
+                    <li><a href="retirada.html" class="ativo">Movimentação</a></li>
                     <li><a href="cadastro.html">Cadastro de Produtos</a></li>
                     <li><a href="relatorios.html">Relatórios</a></li>
                 </ul>
@@ -29,54 +29,39 @@
 
         <main class="conteudo-principal">
             <header>
-                <div>
-                    <h1>Registro de Movimentação</h1>
-                    <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
-                </div>
+                <h1>Registro de Movimentação Técnica</h1>
+                <p id="relogio-auto" style="color: #3b82f6; font-weight: bold;"></p>
             </header>
 
             <section class="cartao" style="max-width: 800px;">
-                <h2 style="margin-bottom: 25px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">Registrar Entrada ou Saída</h2>
-                
-                <form id="form-movimentacao" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="grupo-input" style="grid-column: span 2;">
-                        <label>Matrícula ou Nome do Responsável</label>
-                        <input type="text" placeholder="Ex: João Silva ou 12345" required>
+                        <label>Responsável / Matrícula</label>
+                        <input type="text" placeholder="Ex: João Souza (1234)" required>
                     </div>
-                    
                     <div class="grupo-input">
-                        <label>Código do Produto / Ferramenta</label>
-                        <input type="text" placeholder="Digite ou bipe o código" required>
+                        <label>Código do Item</label>
+                        <input type="text" placeholder="Bipe o código aqui" required>
                     </div>
-                    
                     <div class="grupo-input">
                         <label>Quantidade</label>
-                        <input type="number" value="1" min="1" required>
+                        <input type="number" value="1">
                     </div>
-
-                    <div class="grupo-input">
-                        <label>Data e Hora (Automático)</label>
-                        <input type="text" id="data-hora-auto" readonly style="background-color: #f1f5f9; cursor: not-allowed; font-weight: bold; color: #475569;">
-                    </div>
-
                     <div class="grupo-input">
                         <label>Ordem de Serviço (OS)</label>
-                        <input type="text" placeholder="Ex: OS-2026-001">
+                        <input type="text" placeholder="OS-2026-X">
                     </div>
-
+                    <div class="grupo-input">
+                        <label>Nota Fiscal (NF)</label>
+                        <input type="text" placeholder="Entrada por NF">
+                    </div>
                     <div class="grupo-input" style="grid-column: span 2;">
-                        <label>Número da Nota Fiscal (NF)</label>
-                        <input type="text" placeholder="Ex: 558902 (Para Entradas)">
+                        <label>Observações do Estado do Material</label>
+                        <textarea rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 5px; padding: 10px;"></textarea>
                     </div>
-
-                    <div class="grupo-input" style="grid-column: span 2;">
-                        <label>Observações (Opcional)</label>
-                        <textarea rows="3" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1;" placeholder="Ex: Ferramenta entregue com caixa original..."></textarea>
-                    </div>
-                    
-                    <div style="grid-column: span 2; display: flex; gap: 15px; margin-top: 10px;">
-                        <button type="button" class="btn btn-importar" style="flex: 1; background-color: #3b82f6; height: 50px; font-weight: bold;">REGISTRAR SAÍDA (Para OS)</button>
-                        <button type="button" class="btn btn-importar" style="flex: 1; background-color: #10b981; height: 50px; font-weight: bold;">REGISTRAR ENTRADA (NF/Devolução)</button>
+                    <div style="grid-column: span 2; display: flex; gap: 10px;">
+                        <button type="button" class="btn" style="flex: 1; background: #ef4444; color: white;">REGISTRAR SAÍDA</button>
+                        <button type="button" class="btn" style="flex: 1; background: #10b981; color: white;">REGISTRAR ENTRADA</button>
                     </div>
                 </form>
             </section>
@@ -84,13 +69,12 @@
     </div>
 
     <script>
-        function atualizarDataHora() {
-            const agora = new Date();
-            const formatado = agora.toLocaleString('pt-BR');
-            document.getElementById('data-hora-auto').value = formatado;
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('relogio-auto').innerText = "Data/Hora Atual: " + now.toLocaleString('pt-BR');
         }
-        setInterval(atualizarDataHora, 1000);
-        atualizarDataHora();
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
