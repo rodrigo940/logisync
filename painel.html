@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel | LogiSync</title>
+    <link rel="stylesheet" href="./estilo/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>LogiSync</h2>
+            <nav>
+                <ul>
+                    <li><a href="painel.html" class="ativo">Painel de Controle</a></li>
+                    <li><a href="consulta.html">Consultar Estoque</a></li>
+                    <li><a href="retirada.html">Movimentação (Entrada/Saída)</a></li>
+                    <li><a href="cadastro.html">Cadastro de Produtos</a></li>
+                    <li><a href="relatorios.html">Relatórios</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header>
+                <div>
+                    <h1>Visão Geral do Almoxarifado</h1>
+                    <p id="relogio-atual" style="color: #64748b; font-weight: bold; margin-top: 5px; font-size: 14px;"></p>
+                </div>
+                <div class="perfil-usuario">Logado: Administrador</div>
+            </header>
+
+            <section class="cartoes">
+                <div class="cartao">
+                    <h3>Total de Itens Cadastrados</h3>
+                    <p class="numero">1.450</p>
+                </div>
+                <div class="cartao alerta">
+                    <h3>Estoque Baixo (Atenção)</h3>
+                    <p class="numero">12</p>
+                    <small>Luvas e Óculos de Proteção</small>
+                </div>
+                <div class="cartao">
+                    <h3>Produtos na Frente de Obra/Rua</h3>
+                    <p class="numero">48</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+            const dia = String(agora.getDate()).padStart(2, '0');
+            const mes = String(agora.getMonth() + 1).padStart(2, '0');
+            const ano = agora.getFullYear();
+            const horas = String(agora.getHours()).padStart(2, '0');
+            const minutos = String(agora.getMinutes()).padStart(2, '0');
+            const segundos = String(agora.getSeconds()).padStart(2, '0');
+            document.getElementById('relogio-atual').textContent = `Hoje é ${dia}/${mes}/${ano} - ${horas}:${minutos}:${segundos}`;
+        }
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
+</body>
+</html>
