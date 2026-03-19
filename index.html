@@ -10,7 +10,15 @@
     
     <div class="login-container">
         <div class="login-cabecalho">
-            <h2>LogiSync</h2>
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 22V12" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 7L12 12L3 7" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 7V17" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
+                <path d="M10.5 12L12 13.5L14.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2 style="color: #1e293b; font-size: 28px; letter-spacing: -1px;">LogiSync</h2>
             <p>Gestão Integrada para o seu Negócio</p>
         </div>
 
@@ -44,7 +52,6 @@
             const senhaDigitada = document.getElementById('senha').value;
             const mensagemErro = document.getElementById('mensagem-erro');
 
-            // Agora ele redireciona para painel.html
             if (usuarioDigitado === 'admin' && senhaDigitada === '123') {
                 mensagemErro.style.display = 'none';
                 window.location.href = 'painel.html';
