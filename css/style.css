@@ -1,0 +1,243 @@
+/* ============================================================
+   1. CONFIGURAÇÕES GERAIS (RESET)
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ============================================================
+   2. LAYOUT DO SISTEMA (PAINEL, CADASTRO, ETC)
+   ============================================================ */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 260px;
+    background-color: #1e293b;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #334155;
+    color: white;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar nav ul li a:hover, .sidebar nav ul li a.ativo {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo-principal {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #1e293b;
+}
+
+/* CARTOES DE INDICADORES */
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cartao {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cartao h3 {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.cartao .numero {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.cartao.alerta {
+    border-left: 4px solid #ef4444;
+}
+
+/* ============================================================
+   3. FORMULÁRIOS E BOTÕES
+   ============================================================ */
+.grupo-input {
+    margin-bottom: 15px;
+}
+
+.grupo-input label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #475569;
+}
+
+.grupo-input input, .grupo-input select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-importar {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-importar:hover {
+    background-color: #2563eb;
+}
+
+/* ============================================================
+   4. TELA DE LOGIN (A OBRA-PRIMA) - NÃO ALTERADO
+   ============================================================ */
+.tela-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1e293b;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-cabecalho {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ANIMAÇÃO DE LOADING NO BOTÃO */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: girar 1s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+.btn-loading .texto-botao { display: none; }
+.btn-loading .spinner { display: block; }
+
+/* ============================================================
+   5. AJUSTES PARA CELULAR (RESPONSIVIDADE) - NOVO!
+   ============================================================ */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Menu em cima, conteúdo embaixo */
+    }
+
+    .sidebar {
+        width: 100%; /* Menu ocupa a largura toda */
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        overflow-x: auto; /* Permite arrastar o menu pro lado se for grande */
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sidebar nav ul li {
+        margin-bottom: 0;
+        white-space: nowrap; /* Não quebra a linha do texto do menu */
+    }
+
+    .conteudo-principal {
+        padding: 15px;
+    }
+
+    /* Ajuste de Grids para ficarem em uma coluna só no celular */
+    div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    section[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cartoes {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao {
+        margin-bottom: 10px;
+    }
+}
