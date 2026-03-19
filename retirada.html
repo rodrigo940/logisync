@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movimentação | LogiSync</title>
+    <title>Movimentação Técnica | LogiSync</title>
     <link rel="stylesheet" href="./estilo/style.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2"/>
+                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
                 </svg>
-                <h2>LogiSync</h2>
+                <h2 style="margin-bottom: 0; border-bottom: none;">LogiSync</h2>
             </div>
             <nav>
                 <ul>
@@ -28,40 +28,77 @@
         </aside>
 
         <main class="conteudo-principal">
-            <header>
-                <h1>Registro de Movimentação Técnica</h1>
-                <p id="relogio-auto" style="color: #3b82f6; font-weight: bold;"></p>
+            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h1>Registro de Movimentação Técnica</h1>
+                    <p style="color: #64748b; font-size: 14px;">Protocolo: <span id="protocolo-id" style="color: #3b82f6; font-weight: bold;">#2026-0001</span></p>
+                </div>
+                <div style="text-align: right; color: #64748b; font-size: 13px;">
+                    <p id="data-hora-auto" style="font-weight: bold; color: #1e293b;"></p>
+                    <span>Status: Conectado à Base de Dados</span>
+                </div>
             </header>
 
-            <section class="cartao" style="max-width: 800px;">
-                <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <section class="cartao" style="max-width: 900px;">
+                <form id="form-movimentacao" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                     <div class="grupo-input" style="grid-column: span 2;">
                         <label>Responsável / Matrícula</label>
-                        <input type="text" placeholder="Ex: João Souza (1234)" required>
+                        <input type="text" placeholder="Ex: João Silva (Matrícula: 12345)" required>
                     </div>
+                    
                     <div class="grupo-input">
-                        <label>Código do Item</label>
-                        <input type="text" placeholder="Bipe o código aqui" required>
+                        <label>Centro de Custo / Projeto</label>
+                        <select style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px;">
+                            <option>Obra Sul - 001</option>
+                            <option>Manutenção Preventiva</option>
+                            <option>Administrativo</option>
+                        </select>
                     </div>
+
+                    <div class="grupo-input">
+                        <label>Código do Item (Bipe ou Digite)</label>
+                        <input type="text" placeholder="PROD-XXXX" required>
+                    </div>
+
                     <div class="grupo-input">
                         <label>Quantidade</label>
-                        <input type="number" value="1">
+                        <input type="number" value="1" min="1" required>
                     </div>
+
+                    <div class="grupo-input">
+                        <label>Estado do Material</label>
+                        <select style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px;">
+                            <option>Novo / Lacrado</option>
+                            <option>Usado / Operacional</option>
+                            <option>Necessita Manutenção</option>
+                        </select>
+                    </div>
+
                     <div class="grupo-input">
                         <label>Ordem de Serviço (OS)</label>
-                        <input type="text" placeholder="OS-2026-X">
+                        <input type="text" placeholder="Ex: OS-2026-X">
                     </div>
+
                     <div class="grupo-input">
                         <label>Nota Fiscal (NF)</label>
-                        <input type="text" placeholder="Entrada por NF">
+                        <input type="text" placeholder="Ex: 558.902">
                     </div>
-                    <div class="grupo-input" style="grid-column: span 2;">
-                        <label>Observações do Estado do Material</label>
-                        <textarea rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 5px; padding: 10px;"></textarea>
+
+                    <div class="grupo-input">
+                        <label>Tipo de Movimentação</label>
+                        <select id="tipo-mov" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px; font-weight: bold;">
+                            <option value="saida">SAÍDA (Retirada)</option>
+                            <option value="entrada">ENTRADA (Devolução/NF)</option>
+                        </select>
                     </div>
-                    <div style="grid-column: span 2; display: flex; gap: 10px;">
-                        <button type="button" class="btn" style="flex: 1; background: #ef4444; color: white;">REGISTRAR SAÍDA</button>
-                        <button type="button" class="btn" style="flex: 1; background: #10b981; color: white;">REGISTRAR ENTRADA</button>
+
+                    <div class="grupo-input" style="grid-column: span 3;">
+                        <label>Observações Detalhadas do Estado do Material</label>
+                        <textarea rows="3" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;" placeholder="Ex: Equipamento entregue com bateria carregada e sem avarias externas..."></textarea>
+                    </div>
+                    
+                    <div style="grid-column: span 3; display: flex; gap: 15px; margin-top: 10px;">
+                        <button type="submit" class="btn btn-importar" style="flex: 1; height: 55px; font-size: 16px;">CONFIRMAR REGISTRO TÉCNICO</button>
                     </div>
                 </form>
             </section>
@@ -69,12 +106,15 @@
     </div>
 
     <script>
-        function updateClock() {
+        function updateDateTime() {
             const now = new Date();
-            document.getElementById('relogio-auto').innerText = "Data/Hora Atual: " + now.toLocaleString('pt-BR');
+            document.getElementById('data-hora-auto').innerText = "Data/Hora Atual: " + now.toLocaleString('pt-BR');
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Gera protocolo aleatório simulado
+        document.getElementById('protocolo-id').innerText = "#" + new Date().getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
     </script>
 </body>
 </html>
