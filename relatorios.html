@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        
         <aside class="sidebar">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,84 +28,81 @@
         </aside>
 
         <main class="conteudo-principal">
-            <header>
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
                 <div>
                     <h1>Relatórios e Auditoria</h1>
                     <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
                 </div>
+                <button class="btn btn-importar" style="padding: 12px 25px;">Baixar Relatório Completo (Excel/PDF)</button>
             </header>
 
-            <section class="secao-relatorio">
-                <h2 style="color: #ef4444; font-size: 18px; margin-bottom: 15px;">1. Itens Não Devolvidos / Alertas</h2>
-                <div class="tabela-container">
-                    <table>
+            <section class="cartao" style="margin-bottom: 30px;">
+                <h2 style="color: #ef4444; font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #fee2e2; padding-bottom: 8px;">1. Itens Não Devolvidos / Alertas</h2>
+                <div class="tabela-container" style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
                         <thead>
-                            <tr>
-                                <th>Responsável</th>
-                                <th>Produto/Ferramenta</th>
-                                <th>Data de Saída</th>
-                                <th>OS vinculada</th>
-                                <th>Status</th>
+                            <tr style="text-align: left; border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Responsável</th>
+                                <th style="padding: 12px;">Produto/Ferramenta</th>
+                                <th style="padding: 12px;">Data de Saída</th>
+                                <th style="padding: 12px;">OS vinculada</th>
+                                <th style="padding: 12px;">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Carlos Silva (98765)</td>
-                                <td>Martelete Rompedor</td>
-                                <td>15/03/2026 - 08:30</td>
-                                <td>OS-001</td>
-                                <td style="color: #ef4444; font-weight: bold;">Atrasado (3 dias)</td>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">Carlos Silva (98765)</td>
+                                <td style="padding: 12px; font-weight: bold;">Martelete Rompedor</td>
+                                <td style="padding: 12px;">15/03/2026 - 08:30</td>
+                                <td style="padding: 12px;">OS-001</td>
+                                <td style="padding: 12px; color: #ef4444; font-weight: bold;">Atrasado (3 dias)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <section class="secao-relatorio" style="margin-top: 30px;">
+            <section class="cartao">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h2 style="color: #3b82f6; font-size: 18px;">2. Histórico de Movimentações</h2>
-                    <select style="padding: 5px; border-radius: 5px; border: 1px solid #cbd5e1;">
+                    <select style="padding: 8px; border-radius: 5px; border: 1px solid #cbd5e1;">
                         <option>Últimos 7 dias</option>
                         <option>Últimos 30 dias</option>
                     </select>
                 </div>
                 <div class="tabela-container">
-                    <table>
+                    <table style="width: 100%; border-collapse: collapse;">
                         <thead>
-                            <tr>
-                                <th>Data e Hora</th>
-                                <th>Tipo</th>
-                                <th>Produto</th>
-                                <th>Qtd</th>
-                                <th>Responsável</th>
-                                <th>Documento (NF / OS)</th>
+                            <tr style="text-align: left; border-bottom: 2px solid #e2e8f0; color: #475569;">
+                                <th style="padding: 12px;">Data e Hora</th>
+                                <th style="padding: 12px;">Tipo</th>
+                                <th style="padding: 12px;">Produto</th>
+                                <th style="padding: 12px;">Qtd</th>
+                                <th style="padding: 12px;">Responsável</th>
+                                <th style="padding: 12px;">Documento</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>18/03/2026 - 14:15</td>
-                                <td style="color: #22c55e; font-weight: bold;">ENTRADA</td>
-                                <td>Filtro de Óleo Diesel</td>
-                                <td>+50</td>
-                                <td>Fornecedor X</td>
-                                <td>NF: 558902</td>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">18/03/2026 - 14:15</td>
+                                <td style="padding: 12px; color: #10b981; font-weight: bold;">ENTRADA</td>
+                                <td style="padding: 12px;">Filtro de Óleo Diesel</td>
+                                <td style="padding: 12px;">+50</td>
+                                <td style="padding: 12px;">Fornecedor X</td>
+                                <td style="padding: 12px;">NF: 558902</td>
                             </tr>
-                            <tr>
-                                <td>18/03/2026 - 10:30</td>
-                                <td style="color: #f59e0b; font-weight: bold;">SAÍDA</td>
-                                <td>Luva de Vaqueta</td>
-                                <td>-2</td>
-                                <td>João Souza (54321)</td>
-                                <td>OS-042</td>
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 12px;">18/03/2026 - 10:30</td>
+                                <td style="padding: 12px; color: #f59e0b; font-weight: bold;">SAÍDA</td>
+                                <td style="padding: 12px;">Luva de Vaqueta</td>
+                                <td style="padding: 12px;">-2</td>
+                                <td style="padding: 12px;">João Souza (54321)</td>
+                                <td style="padding: 12px;">OS-042</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
-
-            <div style="margin-top: 30px; text-align: right;">
-                <button class="btn btn-importar">Baixar Relatório Completo (Excel/PDF)</button>
-            </div>
         </main>
     </div>
 </body>

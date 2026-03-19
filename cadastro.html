@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        
         <aside class="sidebar">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,50 +35,58 @@
                 </div>
             </header>
 
-            <section class="cartao" style="max-width: 800px;">
+            <section class="cartao" style="max-width: 900px;">
+                <h2 style="margin-bottom: 25px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">Informações do Novo Item</h2>
+                
                 <form id="form-cadastro">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="grupo-input">
-                            <label>Nome do Produto</label>
-                            <input type="text" placeholder="Ex: Luva de Vaqueta" required>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <div class="grupo-input" style="grid-column: span 2;">
+                            <label>Descrição / Nome do Produto</label>
+                            <input type="text" placeholder="Ex: Luva de Vaqueta Cano Curto" required>
                         </div>
+
                         <div class="grupo-input">
                             <label>Código Interno / SKU</label>
-                            <input type="text" placeholder="Ex: PROD-102">
+                            <input type="text" placeholder="Ex: PROD-102" required>
                         </div>
+
                         <div class="grupo-input">
-                            <label>Categoria</label>
-                            <select style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1;">
-                                <option>EPIs</option>
+                            <label>Categoria de Material</label>
+                            <select style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #cbd5e1; background: white;">
+                                <option>EPIs (Equip. Prot. Individual)</option>
                                 <option>Ferramentas Elétricas</option>
-                                <option>Consumíveis</option>
-                                <option>Ferragens</option>
+                                <option>Consumíveis / Insumos</option>
+                                <option>Ferragens e Fixadores</option>
+                                <option>Outros</option>
                             </select>
                         </div>
+
                         <div class="grupo-input">
-                            <label>Estoque Mínimo (Alerta)</label>
-                            <input type="number" value="10">
+                            <label>Estoque Mínimo (Gera Alerta)</label>
+                            <input type="number" value="10" min="0">
                         </div>
-                        <div class="grupo-input">
-                            <label>Localização (Corredor/Gaveta)</label>
-                            <input type="text" placeholder="Ex: C1-P2-G5">
-                        </div>
+
                         <div class="grupo-input">
                             <label>Unidade de Medida</label>
-                            <select style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1;">
+                            <select style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #cbd5e1; background: white;">
                                 <option>Unidade (un)</option>
                                 <option>Par (pr)</option>
                                 <option>Caixa (cx)</option>
                                 <option>Metro (m)</option>
+                                <option>Quilo (kg)</option>
                             </select>
+                        </div>
+
+                        <div class="grupo-input" style="grid-column: span 2;">
+                            <label>Localização Exata (Corredor - Prateleira - Gaveta)</label>
+                            <input type="text" placeholder="Ex: C1 - P2 - G5">
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn btn-importar" style="margin-top: 20px; width: 100%;">CADASTRAR PRODUTO NO SISTEMA</button>
+                    <button type="submit" class="btn btn-importar" style="margin-top: 30px; width: 100%; height: 55px; font-size: 18px; font-weight: bold; background-color: #3b82f6;">SALVAR PRODUTO NO BANCO DE DADOS</button>
                 </form>
             </section>
         </main>
-
     </div>
 </body>
 </html>
