@@ -8,13 +8,11 @@
 </head>
 <body>
     <div class="container">
-        
         <aside class="sidebar">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="3" fill="#3b82f6"/> 
-                </svg>
+                    <circle cx="12" cy="12" r="3" fill="#3b82f6"/> </svg>
                 <h2>LogiSync</h2>
             </div>
             <nav>
@@ -29,63 +27,40 @@
         </aside>
 
         <main class="conteudo-principal">
-            <header>
-                <h1>Gestão e Importação de Ativos</h1>
-            </header>
+            <header><h1>Gestão e Importação de Ativos</h1></header>
 
-            <div class="grid-cadastro-global">
-                
+            <div class="grid-manual-excel">
                 <section class="cartao">
-                    <h2 style="margin-bottom: 20px; color: #1e293b; font-size: 18px;">Cadastro Manual</h2>
-                    <form class="form-cadastro-manual">
-                        <div class="grupo-input" style="grid-column: span 2;">
-                            <label>Descrição do Produto</label>
-                            <input type="text" placeholder="Ex: Luva de Vaqueta Cano Curto" required>
+                    <h2 style="margin-bottom: 20px;">Cadastro de Novo Item</h2>
+                    <form class="form-grid-3col">
+                        <div class="grupo-input span-full">
+                            <label>Descrição Detalhada</label>
+                            <input type="text" placeholder="Ex: Martelete Bosch 220V GBH 2-24 D" required>
                         </div>
-                        <div class="grupo-input">
-                            <label>Código SKU / Interno</label>
-                            <input type="text" placeholder="Ex: PROD-102">
-                        </div>
+                        <div class="grupo-input"><label>SKU / Patrimônio</label><input type="text" required></div>
                         <div class="grupo-input">
                             <label>Categoria</label>
-                            <select style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1; background: white;">
-                                <option>EPIs (Equipamento de Proteção)</option>
-                                <option>Ferramentas Elétricas</option>
-                                <option>Consumíveis</option>
-                                <option>Ferragens</option>
-                            </select>
+                            <select><option>EPIs</option><option>Ferramentas</option><option>Consumíveis</option></select>
                         </div>
                         <div class="grupo-input">
-                            <label>Estoque Mínimo (Alerta)</label>
-                            <input type="number" value="10">
+                            <label>Unidade</label>
+                            <select><option>un</option><option>pr</option><option>cx</option><option>m</option></select>
                         </div>
-                        <div class="grupo-input">
-                            <label>Localização (Corredor/Gaveta)</label>
-                            <input type="text" placeholder="Ex: C1-P2-G5">
-                        </div>
-                        <button type="submit" class="btn btn-importar" style="grid-column: span 2; margin-top: 10px; height: 50px;">SALVAR PRODUTO NO BANCO DE DADOS</button>
+                        <div class="grupo-input"><label>Estoque Mínimo</label><input type="number" value="10"></div>
+                        <div class="grupo-input span-full"><label>Localização Exata</label><input type="text" placeholder="Corredor - Prateleira - Gaveta"></div>
+                        <button type="submit" class="btn btn-blue span-full">SALVAR NO BANCO DE DADOS</button>
                     </form>
                 </section>
 
-                <section class="cartao area-importacao-excel">
-                    <div class="icone-excel-destaque">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                        </polyline>
-                        </svg>
+                <section class="cartao" style="border: 2px dashed #10b981; background: #f0fdf4; text-align: center;">
+                    <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
-                    <h3 style="color: #065f46; font-size: 20px;">Importação em Massa via Excel</h3>
-                    <p style="font-size: 14px; color: #374151; margin-bottom: 20px;">Carregue sua planilha para atualizar o estoque.</p>
-                    
-                    <input type="file" id="upload-excel" style="display: none;" accept=".xlsx, .xls">
-                    <label for="upload-excel" class="btn" style="background: #10b981; color: white; cursor: pointer;">SELECIONAR PLANILHA (.XLSX)</label>
-                    
-                    <a href="#" style="margin-top: 15px; font-size: 12px; color: #059669; text-decoration: underline;">Baixar modelo padrão LogiSync</a>
+                    <h2 style="color: #065f46; font-size: 20px;">Importação em Massa</h2>
+                    <p style="margin: 10px 0;">Arraste sua planilha .xlsx ou .csv aqui</p>
+                    <input type="file" id="excel" style="display: none;">
+                    <label for="excel" class="btn btn-green" style="display: inline-block; cursor: pointer;">SELECIONAR EXCEL</label>
                 </section>
-
             </div>
         </main>
     </div>
