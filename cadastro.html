@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Materiais | LogiSync</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastro de Produtos | LogiSync</title>
+    <link rel="stylesheet" href="./estilo/style.css">
 </head>
 <body>
     <div class="container">
         
         <aside class="sidebar">
-            <h2>LogiSync</h2>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
+                </svg>
+                <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">LogiSync</h2>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Painel de Controle</a></li>
+                    <li><a href="painel.html">Painel de Controle</a></li>
                     <li><a href="consulta.html">Consultar Estoque</a></li>
                     <li><a href="retirada.html">Movimentação (Entrada/Saída)</a></li>
                     <li><a href="cadastro.html" class="ativo">Cadastro de Produtos</a></li>
@@ -24,62 +30,54 @@
 
         <main class="conteudo-principal">
             <header>
-                <h1>Cadastro de Produtos e Materiais</h1>
-                <div class="perfil-usuario">Logado: Administrador</div>
+                <div>
+                    <h1>Cadastro de Novos Produtos</h1>
+                    <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
+                </div>
             </header>
 
-            <div class="grid-duas-colunas">
-                
-                <section class="cartao form-container">
-                    <h3>Cadastrar Novo Item</h3>
-                    <form action="#">
+            <section class="cartao" style="max-width: 800px;">
+                <form id="form-cadastro">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="grupo-input">
-                            <label for="nome-item">Nome do Produto</label>
-                            <input type="text" id="nome-item" placeholder="Ex: Amoxicilina 500mg ou Filtro de Óleo" required>
+                            <label>Nome do Produto</label>
+                            <input type="text" placeholder="Ex: Luva de Vaqueta" required>
                         </div>
-
                         <div class="grupo-input">
-                            <label for="codigo-novo">Código (SKU ou Código de Barras)</label>
-                            <input type="text" id="codigo-novo" placeholder="Digite ou bipe o código" required>
+                            <label>Código Interno / SKU</label>
+                            <input type="text" placeholder="Ex: PROD-102">
                         </div>
-
                         <div class="grupo-input">
-                            <label for="localizacao">Local de Armazenamento</label>
-                            <input type="text" id="localizacao" placeholder="Ex: Corredor 3 - Prateleira B - Gaveta 2" required>
+                            <label>Categoria</label>
+                            <select style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1;">
+                                <option>EPIs</option>
+                                <option>Ferramentas Elétricas</option>
+                                <option>Consumíveis</option>
+                                <option>Ferragens</option>
+                            </select>
                         </div>
-
-                        <div class="grid-duas-colunas" style="gap: 15px;">
-                            <div class="grupo-input" style="width: 100%;">
-                                <label for="qtd-inicial">Qtd Inicial</label>
-                                <input type="number" id="qtd-inicial" value="1" min="1" required>
-                            </div>
-                            <div class="grupo-input" style="width: 100%;">
-                                <label for="estoque-minimo">Estoque Mínimo</label>
-                                <input type="number" id="estoque-minimo" value="5" min="1" required>
-                            </div>
+                        <div class="grupo-input">
+                            <label>Estoque Mínimo (Alerta)</label>
+                            <input type="number" value="10">
                         </div>
-
-                        <div class="botoes-acao" style="margin-top: 10px;">
-                            <button type="button" class="btn btn-devolucao">SALVAR PRODUTO</button>
+                        <div class="grupo-input">
+                            <label>Localização (Corredor/Gaveta)</label>
+                            <input type="text" placeholder="Ex: C1-P2-G5">
                         </div>
-                    </form>
-                </section>
-
-                <section class="cartao form-container">
-                    <h3>Importação em Massa (Excel)</h3>
-                    <p style="color: #64748b; margin-bottom: 20px; font-size: 14px;">
-                        Envie sua planilha com Código, Nome, Local e Quantidade para atualizar tudo de uma vez.
-                    </p>
-                    
-                    <div class="area-upload">
-                        <p>Arraste sua planilha .XLSX ou .CSV aqui</p>
-                        <p>ou</p>
-                        <input type="file" id="arquivo-excel" accept=".xlsx, .xls, .csv" style="display: none;">
-                        <label for="arquivo-excel" class="btn btn-importar" style="display: inline-block; padding: 10px 20px;">Escolher Arquivo</label>
+                        <div class="grupo-input">
+                            <label>Unidade de Medida</label>
+                            <select style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #cbd5e1;">
+                                <option>Unidade (un)</option>
+                                <option>Par (pr)</option>
+                                <option>Caixa (cx)</option>
+                                <option>Metro (m)</option>
+                            </select>
+                        </div>
                     </div>
-                </section>
-
-            </div>
+                    
+                    <button type="submit" class="btn btn-importar" style="margin-top: 20px; width: 100%;">CADASTRAR PRODUTO NO SISTEMA</button>
+                </form>
+            </section>
         </main>
 
     </div>

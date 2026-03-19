@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultar Estoque | LogiSync</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./estilo/style.css">
 </head>
 <body>
     <div class="container">
-        
         <aside class="sidebar">
-            <h2>LogiSync</h2>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #334155; padding-bottom: 15px;">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
+                </svg>
+                <h2 style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">LogiSync</h2>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Painel de Controle</a></li>
+                    <li><a href="painel.html">Painel de Controle</a></li>
                     <li><a href="consulta.html" class="ativo">Consultar Estoque</a></li>
                     <li><a href="retirada.html">Movimentação (Entrada/Saída)</a></li>
                     <li><a href="cadastro.html">Cadastro de Produtos</a></li>
@@ -24,41 +29,35 @@
 
         <main class="conteudo-principal">
             <header>
-                <h1>Consultar Estoque e Localização</h1>
-                <div class="perfil-usuario">Logado: Administrador</div>
+                <div>
+                    <h1>Consultar Estoque e Localização</h1>
+                    <p style="color: #64748b; font-weight: bold; font-size: 14px;">Logado: Administrador</p>
+                </div>
             </header>
 
-            <section class="cartao" style="margin-bottom: 30px;">
-                <div class="barra-pesquisa">
-                    <input type="text" placeholder="Digite o nome do produto, código ou código de barras..." class="input-pesquisa">
-                    <button class="btn btn-importar btn-pesquisar">PESQUISAR</button>
+            <section class="cartao">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="text" placeholder="Digite o nome do produto, código ou SKU..." style="flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px;">
+                    <button class="btn btn-importar">PESQUISAR</button>
                 </div>
-            </section>
 
-            <section class="resultado-pesquisa">
-                <h3 style="color: #64748b; margin-bottom: 15px;">Resultados encontrados:</h3>
-                
-                <div class="cartao" style="border-left: 5px solid #22c55e;">
+                <div style="border-left: 5px solid #22c55e; padding: 20px; background-color: #f8fafc; border-radius: 5px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
-                            <h2 style="color: #0f172a; margin-bottom: 5px;">Dipirona Sódica 500mg / Parafuso Sextavado 8mm</h2>
-                            <p style="color: #64748b; font-size: 14px;">Código: <strong style="color: #333;">PROD-8842</strong></p>
+                            <h2 style="color: #1e293b;">Parafuso Sextavado 8mm</h2>
+                            <p style="color: #64748b; font-size: 14px;">Código: PROD-8842</p>
                         </div>
                         <div style="text-align: right;">
-                            <p style="font-size: 14px; color: #64748b;">Estoque Atual</p>
-                            <p style="font-size: 32px; font-weight: bold; color: #22c55e;">142 <span style="font-size: 16px;">un</span></p>
+                            <p style="color: #64748b; font-size: 12px;">Estoque Atual</p>
+                            <h2 style="color: #22c55e; font-size: 32px;">142 <span style="font-size: 14px;">un</span></h2>
                         </div>
                     </div>
-                    
-                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-                    
-                    <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px;">
-                        <p style="font-size: 14px; color: #64748b; margin-bottom: 5px;">Local de Armazenamento Exato:</p>
-                        <h3 style="color: #3b82f6; font-size: 20px;">Corredor 03 ➔ Prateleira B ➔ Gaveta 12</h3>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+                        <p style="color: #64748b; font-size: 12px; margin-bottom: 5px;">Local de Armazenamento Exato:</p>
+                        <p style="color: #3b82f6; font-weight: bold;">Corredor 03 &rarr; Prateleira B &rarr; Gaveta 12</p>
                     </div>
                 </div>
             </section>
-
         </main>
     </div>
 </body>
